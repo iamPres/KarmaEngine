@@ -1,10 +1,10 @@
 # KarmaEngine
 Command line search engine hosted on AWS
 
-## search.py
+## basic_search.py
 Browse over 100,000 web pages 
 
-## search_title.py
+## advanced_search.py
 Browses in greater detail
 Slightly slower
 
