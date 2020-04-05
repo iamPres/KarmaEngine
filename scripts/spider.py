@@ -4,13 +4,13 @@ from urllib.parse import urlparse
 import sys
 import keyboard
 
-url = "https://www.reddit.com/"
+url = "https://ifunny.co/"
 file = open("links.txt", "a+")
 visited = []
 iteration = 0
-start_index = 3
+start_index = 0
 
-recursive_depth = 10
+recursive_depth = -1
 
 def scrape(links):
     global iteration
@@ -19,7 +19,7 @@ def scrape(links):
     valid = True
 
     for link in links:
-        if link not in visited:
+        if link not in visited or link == url:
             try:
                 parsed = urlparse(link)
                 base = f"{parsed.scheme}://{parsed.netloc}"
@@ -27,7 +27,7 @@ def scrape(links):
                 output = re.findall('''<a\s+(?:[^>]*?\s+)?href="([^"]*)"''', str(html.content))
                 temp = []
                 for i in output:
-                    if i.find('/r/') != -1:
+                    if i.find('/picture/') != -1:
                         temp.append(i)
 
                 output = temp
@@ -50,7 +50,7 @@ def scrape(links):
             visited.append(link)
 
             iteration += 1
-            if iteration > recursive_depth:
+            if iteration < recursive_depth:
                 print("Recursion Reset.")
                 iteration = 0
                 scrape([url])
