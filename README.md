@@ -16,5 +16,5 @@ Uploads to AWS database
 Upload in bulk without scraping
 
 ## svm_ltr.py
-Working Support Vector Machine to classify relevant results.
+Working Support Vector Machine to classify relevant results at 97% accuracy.
 Unfinished
