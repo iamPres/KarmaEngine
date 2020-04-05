@@ -14,3 +14,7 @@ Uploads to AWS database
 
 ## upload.py
 Upload in bulk without scraping
+
+## svm_ltr.py
+Working Support Vector Machine to classify relevant results.
+Unfinished
